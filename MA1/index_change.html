@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout</title>
+    <style>
+      /* 让整个页面占满视口 */
+      html,
+      body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+      }
+
+      /* 🚀 Grid 容器，占满 90% 页面宽度 */
+      .grid-container {
+        display: grid;
+        grid-template-areas:
+          "header header header"
+          "left main right"
+          "footer footer footer";
+
+        grid-template-columns: 1fr 4fr 1fr; /* 中间内容区域 4 倍侧边栏 */
+        grid-template-rows: 1fr 4fr 1fr; /* 主内容区域 4 倍 header/footer */
+
+        width: 90%;
+        height: 90%;
+        border: 2px solid black;
+        background-color: white;
+      }
+
+      /* 🌈 让不同区域有明显边界 */
+      .header,
+      .footer,
+      .left,
+      .right,
+      .main {
+        border: 1px solid black;
+        background-color: pink;
+      }
+
+      .header {
+        grid-area: header;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .footer {
+        grid-area: footer;
+      }
+
+      .left {
+        grid-area: left;
+        padding: 10px;
+      }
+
+      .right {
+        grid-area: right;
+      }
+
+      /* ✅ 让 main 居中，并让 square 也在内部居中 */
+      .main {
+        grid-area: main;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* 🎯 任务 2：hover 变大 */
+      .square {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: darkred;
+        height: 60px;
+        width: 60px;
+        transition: 0.5s;
+      }
+
+      .square:hover {
+        width: 120px;
+        height: 120px;
+        background-color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="header">Hunter's Website</div>
+      <div class="left">
+        <ul>
+          <li><a href="#">Home Page</a></li>
+          <li><a href="#">Photos</a></li>
+          <li><a href="#">Secret Project</a></li>
+        </ul>
+      </div>
+      <div class="right"></div>
+      <div class="main">
+        <div class="square"></div>
+      </div>
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Assignment by Timmons Xu</title>
+
+    <style>
+      html,
+      body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: green;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-areas:
+          "header header header"
+          "left main right"
+          "footer footer footer";
+
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 1fr 4fr 1fr;
+
+        width: 90%;
+        height: 90%;
+
+        grid-gap: 3px;
+        background-color: lightsalmon;
+        border: 2px solid red;
+      }
+
+      .header {
+        background-color: pink;
+        grid-area: header;
+      }
+
+      .right {
+        background-color: pink;
+        grid-area: right;
+      }
+      .footer {
+        background-color: pink;
+        grid-area: footer;
+      }
+      .left {
+        background-color: pink;
+        grid-area: left;
+      }
+
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: pink;
+        grid-area: main;
+      }
+
+      .square {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightblue;
+        height: 60px;
+        width: 60px;
+        transition: 500ms;
+      }
+
+      .square:hover {
+        width: 120px;
+        height: 120px;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <div class="header"></div>
+      <div class="footer"></div>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="main">
+        <div class="square">Timmons Xu</div>
+      </div>
+    </div>
+  </body>
+</html>

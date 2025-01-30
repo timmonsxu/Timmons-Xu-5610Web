@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout</title>
+    <style>
+      html,
+      body {
+        height: 100vh;
+        margin: 0;
+        background-color: grey;
+      }
+
+      .grid-container {
+        width: 90%;
+        height: 90%;
+
+        display: grid;
+        grid-template-areas:
+          "header header header"
+          "left main right"
+          "footer footer footer";
+
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 1fr 4fr 1fr;
+
+        gap: 3px;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .header,
+      .footer,
+      .left,
+      .right,
+      .main {
+        background-color: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+      }
+
+      .header {
+        grid-area: header;
+      }
+      .footer {
+        grid-area: footer;
+      }
+      .left {
+        grid-area: left;
+      }
+      .right {
+        grid-area: right;
+      }
+      .main {
+        grid-area: main;
+      }
+
+      .square {
+        background-color: lightblue;
+        height: 60px;
+        width: 60px;
+        transition: 0.5s;
+      }
+
+      .square:hover {
+        width: 120px;
+        height: 120px;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="header"><h1>Timmons Xu</h1></div>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="main">
+        <div class="square"></div>
+      </div>
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>
