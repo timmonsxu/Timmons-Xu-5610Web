@@ -1,5 +1,6 @@
 html,
 body {
+  font-family: "Inter", sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -62,7 +63,13 @@ body {
   scale: calc(1.2);
 }
 
+.nav-links a,
+.button {
+  font-family: "Rajdhani", sans-serif;
+}
+
 .title {
+  font-family: "Orbitron", sans-serif;
   text-align: center;
   font-size: 2rem;
   color: white;
@@ -114,6 +121,11 @@ body {
   flex-direction: column;
   overflow-y: auto;
   margin: 10rem;
+}
+
+.rule-border {
+  scrollbar-width: auto;
+  scrollbar-color: white #73c7c7;
 }
 
 .game-border {
@@ -207,12 +219,14 @@ body {
   }
 
   .timer {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    scale: 0.8;
   }
 }
 
 .timer {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .chess-board {
@@ -269,4 +283,23 @@ body {
   .cell {
     font-weight: small;
   }
+}
+
+.ranking-table th {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.ranking-table tbody tr:first-child td:nth-child(1)::after {
+  content: " 🏆";
+  color: gold;
+}
+.ranking-table tbody tr:nth-child(2) td:nth-child(1)::after {
+  content: " 🥈";
+  color: silver;
+}
+
+.ranking-table tbody tr:nth-child(3) td:nth-child(1)::after {
+  content: " 🥉";
+  color: #cd7f32;
 }
