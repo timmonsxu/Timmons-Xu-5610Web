@@ -23,12 +23,14 @@ const GameContent = () => {
         <h1>Battle Game</h1>
         <Timer />
         <GameStatusBanner />
-        <GameBoard
-          boardType="enemy"
-          boardData={enemyBoard}
-          onTileClick={handlePlayerMove}
-        />
-        <GameBoard boardType="player" boardData={playerBoard} />
+        <div className="boards-wrapper">
+          <GameBoard
+            boardType="enemy"
+            boardData={enemyBoard}
+            onTileClick={handlePlayerMove}
+          />
+          <GameBoard boardType="player" boardData={playerBoard} />
+        </div>
         <RestartButton />
       </div>
 
