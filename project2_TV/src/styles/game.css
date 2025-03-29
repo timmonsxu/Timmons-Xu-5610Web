@@ -1,128 +1,160 @@
-
 .container {
-    width: 80%; 
-    max-width: 900px; 
-    max-height: 1200px;
-    min-height: 700px;
-    margin: 90px auto; 
-    background: white; 
-    padding: 30px;
-    border-radius: 20px; 
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
-    text-align: center; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    overflow-x: hidden;
+  width: 80%;
+  max-width: 900px;
+  max-height: 1200px;
+  min-height: 700px;
+  margin: 90px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 .game-board {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  overflow-x: auto;
 }
-
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(8, 80px);
-    grid-template-rows: repeat(8, 55px);
-    gap: 1px;
+  display: grid;
+  grid-template-columns: repeat(8, 80px);
+  grid-template-rows: repeat(8, 55px);
+  gap: 1px;
 }
-
 
 .cell {
-    width: 50px;
-    height: 50px;
-    background-color: lightblue;
-    border: 1px solid #333;
-    transition: transform 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  transition: 0.2s ease;
 }
-
 
 .cell:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+  cursor: pointer;
+  background-color: #d0d0d0;
 }
 
+.cell.hit {
+  background-color: #f44336; /* red */
+  color: white;
+}
+
+.cell.miss {
+  background-color: #2196f3; /* blue */
+  color: white;
+}
+
+.icon {
+  font-size: 16px;
+  user-select: none;
+}
 
 .hit {
-    background-color: rgb(93, 139, 93);
-    position: relative;
+  background-color: rgb(93, 139, 93);
+  position: relative;
 }
 
 .hit::after {
-    content: "✔";
-    color: white;
-    font-size: 1.5em;
+  content: "✔";
+  color: white;
+  font-size: 1.5em;
 }
 
-
 .miss {
-    background-color: rgb(141, 75, 75);
-    position: relative;
+  background-color: rgb(141, 75, 75);
+  position: relative;
 }
 
 .miss::after {
-    content: "X";
-    color: white;
-    font-size: 1.5em;
+  content: "X";
+  color: white;
+  font-size: 1.5em;
 }
 
 .button-container {
-    display: flex;
-    justify-content: center; 
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-
 .restart-btn {
-    background-color: orange;
-    color: white;
-    font-size: 1em;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: auto;
-    
+  background-color: orange;
+  color: white;
+  font-size: 1em;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: auto;
 }
 
 .restart-btn:hover {
-    background-color: rgb(156, 28, 28);
+  background-color: rgb(156, 28, 28);
 }
 .timer {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
+
+.game-over-banner {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 6px;
+  margin: 16px auto;
+  width: fit-content;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media screen and (max-width: 768px) {
-    .container {
-        width: 95%; 
-        min-height: auto; 
-        padding: 20px;
-    }
+  .container {
+    width: 95%;
+    min-height: auto;
+    padding: 20px;
+  }
 
-    .grid {
-        grid-template-columns: repeat(8, 40px); 
-        grid-template-rows: repeat(8, 40px);
-        gap: 4px;
-    }
+  .grid {
+    grid-template-columns: repeat(8, 40px);
+    grid-template-rows: repeat(8, 40px);
+    gap: 4px;
+  }
 
-    .cell {
-        width: 40px; 
-        height: 40px;
-    }
+  .cell {
+    width: 40px;
+    height: 40px;
+  }
 
-    .timer {
-        font-size: 1em; 
-    }
+  .timer {
+    font-size: 1em;
+  }
 
-    .restart-btn {
-        font-size: 0.9em; 
-        padding: 8px 16px;
-    }
+  .restart-btn {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
 }

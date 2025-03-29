@@ -2,18 +2,23 @@ import React from "react";
 import Tile from "./Tile";
 import "../styles/game.css";
 
-const GameBoard = () => {
-  const totalTiles = 64; // 8x8 grid for now (可换成 100)
-  const mockBoard = Array(totalTiles).fill("");
-
-  // Example: mockBoard[0] = 'hit', mockBoard[4] = 'miss'
-
+const GameBoard = ({ boardType, boardData, onTileClick }) => {
   return (
-    <div className="game-board">
+    <div className={`game-board ${boardType}`}>
+      <h2>{boardType === "player" ? "Your Fleet" : "Enemy Waters"}</h2>
       <div className="grid">
-        {mockBoard.map((type, index) => (
-          <Tile key={index} type={type} />
-        ))}
+        {boardData.map((row, x) =>
+          row.map((tile, y) => (
+            <Tile
+              key={`${x}-${y}`}
+              tile={tile}
+              x={x}
+              y={y}
+              boardType={boardType}
+              onClick={onTileClick}
+            />
+          ))
+        )}
       </div>
     </div>
   );
